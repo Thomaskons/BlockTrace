@@ -108,7 +108,7 @@
         }
 
         .logo-text {
-            font-size: 20px;
+            font-size: clamp(16px, 2.5vw, 20px);
             font-weight: 700;
             color: var(--primary);
         }
@@ -124,6 +124,7 @@
             text-decoration: none;
             transition: color 0.3s ease;
             font-weight: 500;
+            font-size: clamp(14px, 1.5vw, 16px);
         }
 
         .nav-links a:hover {
@@ -139,6 +140,50 @@
             cursor: pointer;
         }
 
+        /* Mobile Navigation */
+        .mobile-nav {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            background: rgba(10, 10, 10, 0.95);
+            backdrop-filter: blur(12px);
+            z-index: 999;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 32px;
+        }
+
+        .mobile-nav.active {
+            display: flex;
+        }
+
+        .mobile-nav a {
+            color: var(--foreground);
+            text-decoration: none;
+            font-size: 24px;
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+
+        .mobile-nav a:hover {
+            color: var(--primary);
+        }
+
+        .mobile-close {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: none;
+            border: none;
+            color: var(--foreground);
+            font-size: 32px;
+            cursor: pointer;
+        }
+
         /* Hero Section */
         .hero {
             min-height: 100vh;
@@ -146,8 +191,12 @@
             align-items: center;
             justify-content: center;
             position: relative;
-            background: radial-gradient(circle at 25% 25%, rgba(0, 224, 255, 0.1) 0%, transparent 50%),
-                        radial-gradient(circle at 75% 75%, rgba(0, 224, 255, 0.05) 0%, transparent 50%);
+            background: 
+                linear-gradient(rgba(10, 10, 10, 0.7), rgba(10, 10, 10, 0.8)),
+                url('https://demodernenomaden.nl/wp-content/uploads/2024/01/data-tokenisation-crypto-1.png');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
             padding-top: 80px;
         }
 
@@ -167,6 +216,7 @@
             max-width: 800px;
             z-index: 10;
             position: relative;
+            padding: 0 20px;
         }
 
         .hero h1 {
@@ -174,6 +224,7 @@
             font-weight: 900;
             margin-bottom: 24px;
             line-height: 1.2;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
         }
 
         .hero h1 .brand {
@@ -185,22 +236,24 @@
             color: var(--muted);
             margin-bottom: 24px;
             font-weight: 500;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
         }
 
         .hero .description {
-            font-size: 18px;
+            font-size: clamp(16px, 2vw, 18px);
             color: var(--muted);
             margin-bottom: 48px;
             line-height: 1.7;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
         }
 
         .cta-button {
             background: var(--primary);
             color: var(--background);
             border: none;
-            padding: 16px 32px;
+            padding: clamp(12px, 2vw, 16px) clamp(24px, 4vw, 32px);
             border-radius: 12px;
-            font-size: 18px;
+            font-size: clamp(16px, 2vw, 18px);
             font-weight: 600;
             cursor: pointer;
             transition: all 0.3s ease;
@@ -219,12 +272,13 @@
             border-top: 1px solid rgba(51, 51, 51, 0.3);
             color: var(--primary);
             font-weight: 600;
-            font-size: 18px;
+            font-size: clamp(16px, 2vw, 18px);
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
         }
 
         /* Section Styles */
         .section {
-            padding: 96px 0;
+            padding: clamp(60px, 8vw, 96px) 0;
         }
 
         .section.secondary {
@@ -233,7 +287,7 @@
 
         .section-header {
             text-align: center;
-            margin-bottom: 64px;
+            margin-bottom: clamp(40px, 6vw, 64px);
         }
 
         .section-header h2 {
@@ -243,7 +297,7 @@
         }
 
         .section-header p {
-            font-size: 20px;
+            font-size: clamp(16px, 2vw, 20px);
             color: var(--muted);
             max-width: 600px;
             margin: 0 auto;
@@ -252,19 +306,20 @@
         /* How We Work */
         .steps {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 48px;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: clamp(32px, 5vw, 48px);
             max-width: 1000px;
             margin: 0 auto;
         }
 
         .step {
             text-align: center;
+            padding: 0 16px;
         }
 
         .step-icon {
-            width: 64px;
-            height: 64px;
+            width: clamp(56px, 8vw, 64px);
+            height: clamp(56px, 8vw, 64px);
             background: rgba(0, 224, 255, 0.2);
             border-radius: 16px;
             display: flex;
@@ -274,7 +329,7 @@
         }
 
         .step h3 {
-            font-size: 24px;
+            font-size: clamp(20px, 3vw, 24px);
             font-weight: 700;
             margin-bottom: 16px;
         }
@@ -282,11 +337,12 @@
         .step p {
             color: var(--muted);
             line-height: 1.7;
+            font-size: clamp(14px, 2vw, 16px);
         }
 
         .process-indicator {
             text-align: center;
-            margin-top: 64px;
+            margin-top: clamp(40px, 6vw, 64px);
         }
 
         .indicator {
@@ -298,13 +354,14 @@
             border-radius: 24px;
             color: var(--primary);
             font-weight: 600;
+            font-size: clamp(14px, 1.8vw, 16px);
         }
 
         /* About Section */
         .about-grid {
             display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 64px;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: clamp(40px, 6vw, 64px);
             align-items: center;
         }
 
@@ -342,13 +399,14 @@
         }
 
         .feature h3 {
-            font-size: 20px;
+            font-size: clamp(18px, 2.5vw, 20px);
             font-weight: 600;
             margin-bottom: 8px;
         }
 
         .feature p {
             color: var(--muted);
+            font-size: clamp(14px, 1.8vw, 16px);
         }
 
         .about-image {
@@ -365,14 +423,14 @@
         .services-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 32px;
+            gap: clamp(24px, 4vw, 32px);
         }
 
         .service-card {
             background: linear-gradient(145deg, var(--card), #1a1a1a);
             border: 1px solid var(--border);
             border-radius: 16px;
-            padding: 32px;
+            padding: clamp(24px, 4vw, 32px);
             transition: all 0.3s ease;
         }
 
@@ -382,8 +440,8 @@
         }
 
         .service-icon {
-            width: 64px;
-            height: 64px;
+            width: clamp(56px, 8vw, 64px);
+            height: clamp(56px, 8vw, 64px);
             background: rgba(0, 224, 255, 0.2);
             border-radius: 16px;
             display: flex;
@@ -393,7 +451,7 @@
         }
 
         .service-card h3 {
-            font-size: 20px;
+            font-size: clamp(18px, 2.5vw, 20px);
             font-weight: 700;
             margin-bottom: 16px;
         }
@@ -401,13 +459,14 @@
         .service-card p {
             color: var(--muted);
             line-height: 1.7;
+            font-size: clamp(14px, 1.8vw, 16px);
         }
 
         /* Team Section */
         .team-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 32px;
+            gap: clamp(24px, 4vw, 32px);
             max-width: 1000px;
             margin: 0 auto;
         }
@@ -416,7 +475,7 @@
             background: linear-gradient(145deg, var(--card), #1a1a1a);
             border: 1px solid var(--border);
             border-radius: 16px;
-            padding: 32px;
+            padding: clamp(24px, 4vw, 32px);
             text-align: center;
             transition: all 0.3s ease;
         }
@@ -427,8 +486,8 @@
         }
 
         .team-avatar {
-            width: 80px;
-            height: 80px;
+            width: clamp(70px, 10vw, 80px);
+            height: clamp(70px, 10vw, 80px);
             border-radius: 50%;
             margin: 0 auto 20px;
             border: 3px solid var(--primary);
@@ -436,7 +495,7 @@
         }
 
         .team-card h3 {
-            font-size: 20px;
+            font-size: clamp(18px, 2.5vw, 20px);
             font-weight: 700;
             margin-bottom: 8px;
         }
@@ -445,18 +504,19 @@
             color: var(--primary);
             font-weight: 600;
             margin-bottom: 12px;
+            font-size: clamp(14px, 1.8vw, 16px);
         }
 
         .team-card .experience {
             color: var(--muted);
-            font-size: 14px;
+            font-size: clamp(12px, 1.5vw, 14px);
             margin-bottom: 16px;
         }
 
         .team-card p {
             color: var(--muted);
             line-height: 1.6;
-            font-size: 14px;
+            font-size: clamp(12px, 1.5vw, 14px);
         }
 
         /* CTA Banner */
@@ -477,6 +537,7 @@
             text-align: center;
             position: relative;
             z-index: 10;
+            padding: 0 20px;
         }
 
         .cta-banner h2 {
@@ -495,26 +556,26 @@
 
         .glow-button {
             animation: glow 2s ease-in-out infinite alternate;
-            padding: 20px 48px;
-            font-size: 20px;
+            padding: clamp(16px, 3vw, 20px) clamp(32px, 6vw, 48px);
+            font-size: clamp(18px, 2.5vw, 20px);
         }
 
         /* Footer */
         .footer {
             background: var(--card);
             border-top: 1px solid var(--border);
-            padding: 64px 0;
+            padding: clamp(40px, 6vw, 64px) 0;
         }
 
         .footer-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 48px;
-            margin-bottom: 48px;
+            gap: clamp(32px, 5vw, 48px);
+            margin-bottom: clamp(32px, 5vw, 48px);
         }
 
         .footer h4 {
-            font-size: 18px;
+            font-size: clamp(16px, 2vw, 18px);
             font-weight: 600;
             margin-bottom: 16px;
         }
@@ -529,10 +590,16 @@
             color: var(--muted);
             text-decoration: none;
             transition: color 0.3s ease;
+            font-size: clamp(14px, 1.8vw, 16px);
         }
 
         .footer-links a:hover {
             color: var(--primary);
+        }
+
+        .footer-links span {
+            color: var(--muted);
+            font-size: clamp(14px, 1.8vw, 16px);
         }
 
         .social-links {
@@ -563,18 +630,19 @@
             padding-top: 32px;
             border-top: 1px solid var(--border);
             color: var(--muted);
+            font-size: clamp(14px, 1.8vw, 16px);
         }
 
         .trust-section {
             text-align: center;
-            margin-bottom: 48px;
+            margin-bottom: clamp(32px, 5vw, 48px);
             max-width: 800px;
             margin-left: auto;
             margin-right: auto;
         }
 
         .trust-section h3 {
-            font-size: 24px;
+            font-size: clamp(20px, 3vw, 24px);
             font-weight: 700;
             margin-bottom: 16px;
         }
@@ -582,6 +650,7 @@
         .trust-section p {
             color: var(--muted);
             line-height: 1.7;
+            font-size: clamp(14px, 1.8vw, 16px);
         }
 
         /* Animations */
@@ -604,7 +673,7 @@
             display: block;
         }
 
-        /* Responsive */
+        /* Responsive Design Enhancements */
         @media (max-width: 768px) {
             .nav-links {
                 display: none;
@@ -628,6 +697,56 @@
                 top: 10px;
                 right: 10px;
                 padding: 6px;
+            }
+            
+            .hero {
+                background-attachment: scroll;
+            }
+            
+            .container {
+                padding: 0 16px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-content {
+                padding: 0 16px;
+            }
+            
+            .section {
+                padding: 40px 0;
+            }
+            
+            .language-switcher {
+                flex-direction: column;
+                gap: 4px;
+            }
+            
+            .lang-btn {
+                padding: 4px 8px;
+                font-size: 12px;
+            }
+        }
+
+        /* Large screen optimizations */
+        @media (min-width: 1400px) {
+            .container {
+                max-width: 1400px;
+            }
+        }
+
+        /* Touch device optimizations */
+        @media (hover: none) and (pointer: coarse) {
+            .cta-button:hover,
+            .service-card:hover,
+            .team-card:hover {
+                transform: none;
+            }
+            
+            .cta-button:active,
+            .service-card:active,
+            .team-card:active {
+                transform: scale(0.98);
             }
         }
     </style>
@@ -669,10 +788,20 @@
                     <li><a href="#contact" data-translate="nav-contact">Contact</a></li>
                 </ul>
                 
-                <button class="mobile-menu">☰</button>
+                <button class="mobile-menu" onclick="toggleMobileMenu()">☰</button>
             </nav>
         </div>
     </header>
+
+    <!-- Mobile Navigation -->
+    <div class="mobile-nav" id="mobileNav">
+        <button class="mobile-close" onclick="toggleMobileMenu()">×</button>
+        <a href="#home" onclick="toggleMobileMenu()" data-translate="nav-home">Home</a>
+        <a href="#about" onclick="toggleMobileMenu()" data-translate="nav-about">About</a>
+        <a href="#services" onclick="toggleMobileMenu()" data-translate="nav-services">Services</a>
+        <a href="#how-it-works" onclick="toggleMobileMenu()" data-translate="nav-how-it-works">How It Works</a>
+        <a href="#contact" onclick="toggleMobileMenu()" data-translate="nav-contact">Contact</a>
+    </div>
 
     <!-- Hero Section -->
     <section id="home" class="hero">
@@ -685,7 +814,7 @@
                 <p class="description" data-translate="hero-description">
                     We trace stolen funds, work with exchanges, and connect victims to real legal recovery paths — without false promises.
                 </p>
-                <a href="#how-it-works" class="cta-button" data-translate="start-case">Start My Case</a>
+                <button class="cta-button" onclick="sendEmail()" data-translate="start-case">Start My Case</button>
                 
                 <div class="trust-statement" data-translate="trust-statement">
                     "No upfront fees. No empty promises. Only data, law, and action."
@@ -756,7 +885,7 @@
             <div class="about-grid">
                 <div>
                     <h2 style="font-size: clamp(2rem, 5vw, 3rem); font-weight: 700; margin-bottom: 24px;" data-translate="why-title">Why Asset Withdrawal Professionals?</h2>
-                    <p style="font-size: 20px; color: var(--muted); margin-bottom: 32px; line-height: 1.7;" data-translate="founder-description">
+                    <p style="font-size: clamp(16px, 2vw, 20px); color: var(--muted); margin-bottom: 32px; line-height: 1.7;" data-translate="founder-description">
                         Founded by Henrik Svendsen — driven by a mission to protect victims of crypto scams and build safer digital markets.
                     </p>
                     
@@ -787,7 +916,7 @@
                     </div>
                     
                     <div style="margin-top: 32px;">
-                        <a href="#contact" class="cta-button" data-translate="submit-case">Submit My Case</a>
+                        <button class="cta-button" onclick="sendEmail()" data-translate="submit-case">Submit My Case</button>
                     </div>
                 </div>
                 
@@ -907,7 +1036,7 @@
             <div class="cta-content">
                 <h2 data-translate="cta-title">Take the First Step Toward Justice</h2>
                 <p data-translate="cta-description">Every case strengthens the fight against crypto fraud. Even if full recovery isn't guaranteed, your report helps protect thousands of others.</p>
-                <a href="#contact" class="cta-button glow-button" data-translate="start-case-now">Start My Case Now</a>
+                <button class="cta-button glow-button" onclick="sendEmail()" data-translate="start-case-now">Start My Case Now</button>
             </div>
         </div>
     </section>
@@ -966,6 +1095,31 @@
     </footer>
 
     <script>
+        // Email functionality
+        function sendEmail() {
+            const subject = encodeURIComponent('Crypto Fraud Recovery - Case Consultation Request');
+            const body = encodeURIComponent(`Hello,
+
+I would like to request a consultation regarding crypto fraud recovery services.
+
+Please provide me with:
+1. Initial consultation details
+2. Your process for handling crypto fraud cases
+3. Next steps to begin my case
+
+I understand there are no upfront fees and look forward to hearing from you.
+
+Best regards`);
+            
+            window.location.href = `mailto:blockchain@withdrawal.pro?subject=${subject}&body=${body}`;
+        }
+
+        // Mobile menu functionality
+        function toggleMobileMenu() {
+            const mobileNav = document.getElementById('mobileNav');
+            mobileNav.classList.toggle('active');
+        }
+
         // Translations
         const translations = {
             en: {
@@ -1227,6 +1381,16 @@
                 header.style.background = 'rgba(10, 10, 10, 0.95)';
             } else {
                 header.style.background = 'rgba(10, 10, 10, 0.9)';
+            }
+        });
+
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', function(e) {
+            const mobileNav = document.getElementById('mobileNav');
+            const mobileMenuBtn = document.querySelector('.mobile-menu');
+            
+            if (!mobileNav.contains(e.target) && !mobileMenuBtn.contains(e.target)) {
+                mobileNav.classList.remove('active');
             }
         });
     </script>
